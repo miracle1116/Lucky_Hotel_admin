@@ -5,33 +5,31 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx.deleteRoomController">
-   <left>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label layoutX="88.0" layoutY="42.0" text="Enter Room Type:" />
-            <Label layoutX="100.0" layoutY="85.0" text="Enter Room No: " />
-         </children>
-      </AnchorPane>
-   </left>
    <top>
-      <AnchorPane prefHeight="78.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="78.0" prefWidth="600.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="230.0" layoutY="30.0" text="Delete Room Page" />
+            <Label layoutX="176.0" layoutY="28.0" text="Delete Room Page" textFill="#ffa640">
+               <font>
+                  <Font name="Bell MT Bold" size="30.0" />
+               </font></Label>
          </children>
       </AnchorPane>
    </top>
-   <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+   <left>
+      <AnchorPane prefHeight="322.0" prefWidth="601.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="confirmButton" layoutX="110.0" layoutY="164.0" mnemonicParsing="false" onAction="#confirmDeleteRoom" text="Confirm" />
-            <Button fx:id="backButton" layoutX="-13.0" layoutY="164.0" mnemonicParsing="false" onAction="#back" text="Back" />
-            <Label fx:id="deleteLabel" layoutX="66.0" layoutY="119.0" />
-            <TextField fx:id="roomField" layoutX="10.0" layoutY="41.0" />
-            <TextField fx:id="NoField" layoutX="10.0" layoutY="83.0" />
+            <Button fx:id="confirmButton" layoutX="366.0" layoutY="161.0" mnemonicParsing="false" onAction="#confirmDeleteRoom" style="-fx-background-color: blue;" text="Confirm" textFill="#efefef" />
+            <Label fx:id="deleteLabel" layoutX="-47.0" layoutY="119.0" prefHeight="18.0" prefWidth="265.0" textAlignment="CENTER" />
+            <TextField fx:id="roomField" layoutX="239.0" layoutY="23.0" style="-fx-border-color: #f28407;" />
+            <TextField fx:id="NoField" layoutX="239.0" layoutY="82.0" prefHeight="0.0" prefWidth="151.0" style="-fx-border-color: #f28407;" />
             <Label fx:id="confirmLabel" layoutX="50.0" layoutY="128.0" textFill="#df2828" />
+            <Label layoutX="109.0" layoutY="26.0" text="Enter Room Type:" textFill="#f28407" />
+            <Label layoutX="111.0" layoutY="93.0" text="Enter Room No: " textFill="#ff8400" />
+            <Button fx:id="backButton" layoutX="208.0" layoutY="161.0" mnemonicParsing="false" onAction="#backAction" style="-fx-background-color: red;" text="Back" textFill="#efefef" />
          </children>
       </AnchorPane>
-   </center>
+   </left>
 </BorderPane>

@@ -11,7 +11,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
-
 import java.io.IOException;
 import java.sql.*;
 import java.io.File;
@@ -48,14 +47,13 @@ public class LoginController implements Initializable{
         File lockFile= new File("Downloads/images.png");
         Image lockImage1= new Image(lockFile.toURI().toString());
         lockImage.setImage(lockImage1);
-
-
     }
 
     public void cancelButtonAction(ActionEvent event) {
         Stage stage = (Stage) cancel.getScene().getWindow();
         stage.close();
     }
+
     public static boolean checkValidEmailPassword(String email, String password){
         try
         {
@@ -136,7 +134,7 @@ public class LoginController implements Initializable{
         stage.close();
         Stage primaryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("adminLoginPage.fxml"));
-        primaryStage.setTitle("User Register");
+        primaryStage.setTitle("Admin Login Phrase");
         primaryStage.setScene(new Scene(root,600,400));
         primaryStage.show();
     }

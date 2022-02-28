@@ -5,31 +5,35 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx.UpdateStatusController">
    <top>
-      <AnchorPane prefHeight="88.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="88.0" prefWidth="600.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="226.0" layoutY="36.0" text="Update room status page" />
+            <Label layoutX="135.0" layoutY="26.0" text="Update room status page" textFill="#b747ff">
+               <font>
+                  <Font name="Bell MT Bold" size="30.0" />
+               </font></Label>
          </children>
       </AnchorPane>
    </top>
    <left>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="129.0" layoutY="31.0" text="Enter Room No:" />
-            <Label layoutX="149.0" layoutY="85.0" text="Enter Status:" />
+            <Label layoutX="129.0" layoutY="31.0" text="Enter Room No:" textFill="#fa5dff" />
+            <Label layoutX="149.0" layoutY="85.0" text="Enter Status:" textFill="#eb68ff" />
          </children>
       </AnchorPane>
    </left>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="comfirmLabel" layoutX="77.0" layoutY="115.0" />
-            <Button fx:id="backButton" layoutX="21.0" layoutY="156.0" mnemonicParsing="false" onAction="#back" text="BACK" />
-            <Button fx:id="confirmButton" layoutX="122.0" layoutY="156.0" mnemonicParsing="false" onAction="#confirmDeleteRoom" text="Comfirm" />
-            <TextField fx:id="roomNoField" layoutX="21.0" layoutY="27.0" />
-            <TextField fx:id="statusField" layoutX="22.0" layoutY="80.0" />
+            <Label fx:id="comfirmLabel" layoutX="-26.0" layoutY="123.0" prefHeight="15.0" prefWidth="206.0" textAlignment="CENTER" textFill="#e74a1c" />
+            <Button fx:id="backButton" layoutX="-24.0" layoutY="156.0" mnemonicParsing="false" onAction="#back" style="-fx-background-color: red;" text="BACK" textFill="WHITE" />
+            <Button fx:id="confirmButton" layoutX="140.0" layoutY="156.0" mnemonicParsing="false" onAction="#confirmDeleteRoom" style="-fx-background-color: blue;" text="Comfirm" textFill="WHITE" />
+            <TextField fx:id="roomNoField" layoutX="21.0" layoutY="27.0" style="-fx-border-color: #eb68ff;" />
+            <TextField fx:id="statusField" layoutX="22.0" layoutY="80.0" style="-fx-border-color: #eb68ff;" />
             <Label fx:id="confirmLabel" layoutX="77.0" layoutY="123.0" />
          </children>
       </AnchorPane>

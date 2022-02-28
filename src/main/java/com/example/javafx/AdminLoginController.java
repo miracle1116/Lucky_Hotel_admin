@@ -54,6 +54,7 @@ public class AdminLoginController {
         {
             System.err.println("Got an exception! ");
             System.err.println(e.getMessage());
+            loginLabel.setText("Please Try Again!! ");
 
         }
         return check;

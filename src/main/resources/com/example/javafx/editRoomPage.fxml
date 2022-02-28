@@ -5,37 +5,41 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="517.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx.EditRoomController">
    <left>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="172.0" layoutY="34.0" text="Type:" />
-            <Label layoutX="138.0" layoutY="59.0" text="Description:" />
-            <Label layoutX="134.0" layoutY="154.0" text="No. of Guest:" />
-            <Label layoutX="142.0" layoutY="183.0" text="No. of Bed: " />
-            <Label layoutX="138.0" layoutY="220.0" text="Price/Night:" />
+            <Label layoutX="172.0" layoutY="34.0" text="Type:" textFill="#5defff" />
+            <Label layoutX="138.0" layoutY="59.0" text="Description:" textFill="#4df3ff" />
+            <Label layoutX="134.0" layoutY="154.0" text="No. of Guest:" textFill="#5efcff" />
+            <Label layoutX="142.0" layoutY="183.0" text="No. of Bed: " textFill="#67fcff" />
+            <Label layoutX="138.0" layoutY="220.0" text="Price/Night:" textFill="#54ffff" />
          </children>
       </AnchorPane>
    </left>
    <top>
-      <AnchorPane prefHeight="59.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="59.0" prefWidth="600.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="213.0" layoutY="22.0" text="Edit Room Page" />
+            <Label layoutX="151.0" layoutY="14.0" text="Edit Room Page" textFill="#91e4c9">
+               <font>
+                  <Font name="Bell MT Bold" size="30.0" />
+               </font></Label>
          </children>
       </AnchorPane>
    </top>
    <center>
-      <AnchorPane prefHeight="320.0" prefWidth="358.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="320.0" prefWidth="358.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="confirmLabel" layoutX="89.0" layoutY="251.0" />
-            <TextField fx:id="typeField" layoutX="23.0" layoutY="28.0" />
-            <TextField fx:id="guestField" layoutX="24.0" layoutY="146.0" />
-            <TextField fx:id="bedField" layoutX="25.0" layoutY="180.0" />
-            <TextField fx:id="priceField" layoutX="24.0" layoutY="215.0" />
-            <Button fx:id="backButton" layoutX="25.0" layoutY="277.0" mnemonicParsing="false" onAction="#back" text="Back" />
-            <Button fx:id="confirmButton" layoutX="128.0" layoutY="277.0" mnemonicParsing="false" onAction="#confirmEditRoom" text="Confirm" />
-            <TextField fx:id="desField" layoutX="24.0" layoutY="64.0" prefHeight="71.0" prefWidth="162.0" />
+            <Label fx:id="confirmLabel" layoutX="9.0" layoutY="251.0" prefHeight="15.0" prefWidth="206.0" textFill="RED" />
+            <TextField fx:id="typeField" layoutX="23.0" layoutY="28.0" style="-fx-border-color: #54ffff;" />
+            <TextField fx:id="guestField" layoutX="24.0" layoutY="146.0" style="-fx-border-color: #54ffff;" />
+            <TextField fx:id="bedField" layoutX="25.0" layoutY="180.0" style="-fx-border-color: #54ffff;" />
+            <TextField fx:id="priceField" layoutX="24.0" layoutY="215.0" style="-fx-border-color: #54ffff;" />
+            <Button fx:id="backButton" layoutX="-13.0" layoutY="277.0" mnemonicParsing="false" onAction="#back" style="-fx-background-color: red;" text="Back" textFill="#fffbfb" />
+            <Button fx:id="confirmButton" layoutX="146.0" layoutY="277.0" mnemonicParsing="false" onAction="#confirmEditRoom" style="-fx-background-color: blue;" text="Confirm" textFill="WHITE" />
+            <TextField fx:id="desField" layoutX="24.0" layoutY="64.0" prefHeight="71.0" prefWidth="162.0" style="-fx-border-color: #54ffff;" />
          </children>
       </AnchorPane>
    </center>

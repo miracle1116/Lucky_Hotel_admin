@@ -32,33 +32,37 @@ public class EditRoomController {
     private Label confirmLabel;
 
     public void editRoom( String roomType, int Guest, String description,  int bed, int price) {
-        Connection conn = null;
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager
-                    .getConnection("jdbc:mysql://localhost:3306/room?useSSL=false", "root", "11162002abc");
-            String sql= "update room2 set Guest=?,Bed=?,PricePerNight=?,Description=? where Type=?";
-            PreparedStatement stmt = conn.prepareStatement(sql); ;
-            stmt.setInt(1, Guest);
-            stmt.setInt(2, bed);
-            stmt.setInt(3, price);
-            stmt.setString(4, description);
-            stmt.setString(5, roomType);
-            stmt.executeUpdate();
-            confirmLabel.setText("Successful Edited");
-
-        } catch (SQLException se) {
-            se.printStackTrace();
-            confirmLabel.setText("Room Type: "+roomType +"Not Found");
-            System.out.println(desField.getText());
-        } catch (Exception e) {
-            e.printStackTrace();
-            confirmLabel.setText("Please Try Again");
-        }
+        if (!checkRoomType(roomType).equals("")) {
+            Connection conn = null;
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                conn = DriverManager
+                        .getConnection("jdbc:mysql://localhost:3306/room?useSSL=false", "root", "11162002abc");
+                String sql = "update room2 set Guest=?,Bed=?,PricePerNight=?,Description=? where Type=?";
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                stmt.setInt(1, Guest);
+                stmt.setInt(2, bed);
+                stmt.setInt(3, price);
+                stmt.setString(4, description);
+                stmt.setString(5, roomType);
+                stmt.executeUpdate();
+                confirmLabel.setText("Successful Edited");
+            } catch (SQLException se) {
+                se.printStackTrace();
+                confirmLabel.setText("Room Type: " + roomType + "Not Found");
+                System.out.println(desField.getText());
+            } catch (Exception e) {
+                e.printStackTrace();
+                confirmLabel.setText("Please Try Again");
+            }
+        }else confirmLabel.setText("Please Try Again");
     }
     public void confirmEditRoom() throws IOException {//function to next page
-        editRoom(typeField.getText(),Integer.parseInt(guestField.getText()),desField.getText(),Integer.parseInt(bedField.getText()),Integer.parseInt(priceField.getText()));
-
+        try {
+            editRoom(typeField.getText(), Integer.parseInt(guestField.getText()), desField.getText(), Integer.parseInt(bedField.getText()), Integer.parseInt(priceField.getText()));
+        }catch(RuntimeException e){
+            confirmLabel.setText("Please Try Again");
+        }
     }
     public void back() throws IOException {
         Stage stage =(Stage) backButton.getScene().getWindow();
@@ -69,5 +73,27 @@ public class EditRoomController {
         primaryStage.setScene(new Scene(root,600,400));
         primaryStage.show();
     }
+    public String checkRoomType(String Type) {
+        Connection conn = null;
+        String roomType="";
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager
+                    .getConnection("jdbc:mysql://localhost:3306/room?useSSL=false", "root", "11162002abc");
+            String query = "SELECT  * FROM room2 WHERE Type= " + "'" + Type + "' limit 1";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            while (rs.next()) {
+                roomType = rs.getString("Type");
+            }
+        } catch (SQLException se) {
+            se.printStackTrace();
+            confirmLabel.setText("Please Try Again");
+        } catch (Exception e) {
+            e.printStackTrace();
+            confirmLabel.setText("Please Try Again");
+        }return roomType;
+    }
+
 
 }

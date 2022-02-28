@@ -5,31 +5,35 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx.AdminLoginController">
    <left>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="151.0" layoutY="59.0" text="Admin ID:" />
-            <Label layoutX="151.0" layoutY="126.0" text="Password:" />
+            <Label layoutX="151.0" layoutY="59.0" text="Admin ID:" textFill="#4ce3ed" />
+            <Label layoutX="151.0" layoutY="126.0" text="Password:" textFill="#40d4d9" />
          </children>
       </AnchorPane>
    </left>
    <top>
-      <AnchorPane prefHeight="62.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="62.0" prefWidth="600.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="247.0" layoutY="23.0" text="Admin Login Page" />
+            <Label layoutX="162.0" layoutY="7.0" prefHeight="55.0" prefWidth="275.0" text="Admin Login Page" textFill="#5edeef">
+               <font>
+                  <Font name="MV Boli" size="32.0" />
+               </font></Label>
          </children>
       </AnchorPane>
    </top>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
          <children>
             <TextField fx:id="adminID" layoutX="14.0" layoutY="49.0" />
             <TextField fx:id="passwordField" layoutX="14.0" layoutY="119.0" />
-            <Button fx:id="backButton" layoutX="-8.0" layoutY="186.0" mnemonicParsing="false" onAction="#back" text="Back" />
-            <Button fx:id="loginButton" layoutX="120.0" layoutY="186.0" mnemonicParsing="false" onAction="#adminLogin" text="Login" />
-            <Label fx:id="loginLabel" layoutX="72.0" layoutY="161.0" textFill="#ea0b0b" />
+            <Button fx:id="backButton" layoutX="-8.0" layoutY="186.0" mnemonicParsing="false" onAction="#back" style="-fx-background-color: red;" text="Back" textFill="#f2eaea" />
+            <Button fx:id="loginButton" layoutX="120.0" layoutY="186.0" mnemonicParsing="false" onAction="#adminLogin" style="-fx-background-color: blue;" text="Login" textFill="#f4eeee" />
+            <Label fx:id="loginLabel" layoutX="35.0" layoutY="161.0" prefHeight="15.0" prefWidth="137.0" textAlignment="CENTER" textFill="#ea0b0b" />
          </children>
       </AnchorPane>
    </center>

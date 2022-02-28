@@ -42,7 +42,6 @@ public class addRoomController {
             conn = DriverManager
                     .getConnection("jdbc:mysql://localhost:3306/room?useSSL=false", "root", "11162002abc");
             String query = "SELECT distinct * FROM room2 WHERE Type= " + "'" + roomType + "' limit 1;";
-            System.out.println("Database Connected");
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(query);
             while (rs.next()) {
@@ -53,13 +52,23 @@ public class addRoomController {
                 bed = rs.getInt("Bed");
                 pricePerN = rs.getDouble("PricePerNight");
                 Status = rs.getString("Status");
-
             }
             try {
-                String sql = " INSERT INTO room2 " +
-                        " VALUES " + "(" + "'" + Type + "'" + ", " + "'" + roomNo + "'" + "," + "'" + descrip + "'" + ", " + guest + ", " + bed + ", " + pricePerN + ", 'Available')";
-                st.executeUpdate(sql);
-                confirmLabel.setText("Room NO: "+roomNo+" Successfully created!! ");
+                if(Type.equals("")){
+                    try {
+                        String sql = "not valid";
+                        st.executeUpdate(sql);
+                    }catch(Exception e){
+                        confirmLabel.setText("Please Try Again");
+                    }
+                }else {
+                    String sql = " INSERT INTO room2 " +
+                            " VALUES " + "(" + "'" + Type + "'" + ", " + "'" + roomNo + "'" + "," + "'" + descrip + "'" + ", " + guest + ", " + bed + ", " + pricePerN + ", 'Available')";
+                    st.executeUpdate(sql);
+                    confirmLabel.setText("Room No: "+roomNo+" Successfully created!! ");
+                }
+
+
             } catch (SQLIntegrityConstraintViolationException e) {
                 confirmLabel.setText("Room No: " + roomNo + " already exists");
             }
@@ -73,7 +82,7 @@ public class addRoomController {
             }
 
     }
-    public void confirmAddRoom() throws IOException {//function to next page
+    public void confirmAddRoom() throws IOException {
         addNewRoom(typeField.getText(),noField.getText());
     }
 

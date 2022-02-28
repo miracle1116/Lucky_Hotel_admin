@@ -8,12 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class UpdateStatusController {
 @FXML
@@ -30,14 +26,20 @@ public class UpdateStatusController {
     public void deleteRoom( String roomNo, String status) {
         Connection conn = null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager
-                    .getConnection("jdbc:mysql://localhost:3306/room?useSSL=false", "root", "11162002abc");
-            String query = "UPDATE room2 SET Status= "+"'"+ status +"'"+ " WHERE RoomNo= " + "'" +roomNo +"'" ;
-            Statement st = conn.createStatement();
-            st.executeUpdate(query);
-            System.out.println("Database Connected");
-            confirmLabel.setText("Successfully Updated Room: "+ roomNo);
+            if(!checkRoomNo(roomNo).equals("")) {
+                if (status.equals("Available") || status.equals("Booked")) {
+                    Class.forName("com.mysql.jdbc.Driver");
+                    conn = DriverManager
+                            .getConnection("jdbc:mysql://localhost:3306/room?useSSL=false", "root", "11162002abc");
+                    String query = "UPDATE room2 SET Status= " + "'" + status + "'" + " WHERE RoomNo= " + "'" + roomNo + "'";
+                    Statement st = conn.createStatement();
+                    st.executeUpdate(query);
+                    confirmLabel.setText("Successfully Updated Room: " + roomNoField.getText());
+                } else {
+                    confirmLabel.setText("Please Re-enter Status");
+                }
+            }else  confirmLabel.setText("Please Re-enter Room No");
+
         } catch (SQLException se) {
             se.printStackTrace();
             confirmLabel.setText("Room No: "+roomNo +"Not Found");
@@ -59,4 +61,27 @@ public class UpdateStatusController {
         primaryStage.setScene(new Scene(root,600,400));
         primaryStage.show();
     }
+    public String checkRoomNo(String roomNo) {
+        Connection conn = null;
+        String RoomNo="";
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager
+                    .getConnection("jdbc:mysql://localhost:3306/room?useSSL=false", "root", "11162002abc");
+            String query = "SELECT  * FROM room2 WHERE roomNo= " + "'" + roomNo + "' ";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            while (rs.next()) {
+                RoomNo = rs.getString("RoomNo");
+            }
+            } catch (SQLException se) {
+            se.printStackTrace();
+            confirmLabel.setText("Please Try Again");
+        } catch (Exception e) {
+            e.printStackTrace();
+            confirmLabel.setText("Please Try Again");
+        }return RoomNo;
+    }
+
 }
+

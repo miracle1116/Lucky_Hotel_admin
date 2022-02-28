@@ -3,6 +3,8 @@
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar!/" />
       <root url="jar://D:/mysql-connector-java-5.1.48.jar!/" />
+      <root url="file://D:/jar_files" />
+      <root url="jar://D:/fontawesomefx-8.2.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$MAVEN_REPOSITORY$/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0-javadoc.jar!/" />
@@ -10,5 +12,6 @@
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0-sources.jar!/" />
     </SOURCES>
+    <jarDirectory url="file://D:/jar_files" recursive="false" />
   </library>
 </component>
