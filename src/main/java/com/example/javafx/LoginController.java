@@ -108,9 +108,17 @@ public class LoginController implements Initializable{
         return check;
     }
 
-    public void LoginButtonAction(ActionEvent event){
+    public void LoginButtonAction(ActionEvent event) throws IOException {
         if(checkidUser(emailTextField.getText(),passwordTextField.getText())==true){
             LoginLabel1.setText("Login successful");
+            Stage stage =(Stage) registerButton.getScene().getWindow();
+            stage.close();
+            Stage primaryStage = new Stage();
+            Parent root = FXMLLoader.load(getClass().getResource("RoomTablePage.fxml"));
+            primaryStage.setTitle("Room Status");
+            primaryStage.setScene(new Scene(root,600,400));
+            primaryStage.show();
+
         }else
             LoginLabel1.setText("Please try Again");
 
