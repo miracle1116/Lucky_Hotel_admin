@@ -97,6 +97,7 @@ public class RoomPageController implements Initializable {
                 primaryStage.show();
         }
 
+        //This is a button that use to search the room
         public void yes(ActionEvent event) throws IOException {
                 RoomTable.getItems().clear();
                 RoomCol.setCellValueFactory(new PropertyValueFactory<>("Type"));
